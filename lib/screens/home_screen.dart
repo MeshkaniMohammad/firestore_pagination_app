@@ -33,44 +33,48 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, snapshot) {
           if (snapshot.data != null) {
             return StreamBuilder<bool>(
-              stream: contactsListBloc.showIndicatorStream,
-                builder: (context,indicatorSnapShot){
-                  if(indicatorSnapShot.data == true && snapshot.data.length<30)
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Center(child: CircularProgressIndicator(),)
-                      ],
-                    );
-
-              return ListView.builder(
-                itemCount:
-                snapshot.data.length > 29 ? snapshot.data.length + 1 : snapshot.data.length,
-                controller: _scrollController,
-                itemBuilder: (context, index) {
-                  Widget child;
-                  if(index >= snapshot.data.length)
-                    child = FlutterLogo(
-                      size: 100,
-                    );
-                  else
-                    child = Card(
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          child: Icon(Icons.person),
-                        ),
-                        title: Text(
-                          snapshot.data[index]["full_name"],
-                        ),
-                        subtitle: Text(
-                          snapshot.data[index]["email"],
-                        ),
+                stream: contactsListBloc.showIndicatorStream,
+                builder: (context, indicatorSnapShot) {
+                  return Stack(children: [
+                    ListView.builder(
+                      itemCount: snapshot.data.length > 29
+                          ? snapshot.data.length + 1
+                          : snapshot.data.length,
+                      controller: _scrollController,
+                      itemBuilder: (context, index) {
+                        Widget child;
+                        if (index >= snapshot.data.length)
+                          child = FlutterLogo(
+                            size: 100,
+                          );
+                        else
+                          child = Card(
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                child: Icon(Icons.person),
+                              ),
+                              title: Text(
+                                snapshot.data[index]["full_name"],
+                              ),
+                              subtitle: Text(
+                                snapshot.data[index]["email"],
+                              ),
+                            ),
+                          );
+                        return child;
+                      },
+                    ),
+                    if (indicatorSnapShot.data == true && snapshot.data.length < 30)
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        ],
                       ),
-                    );
-                  return child;
-                },
-              );
-            });
+                  ]);
+                });
           } else {
             return Center(
               child: CircularProgressIndicator(),
