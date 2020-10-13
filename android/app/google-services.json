@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "824283620367",
+    "firebase_url": "https://firestore-pagination-app.firebaseio.com",
+    "project_id": "firestore-pagination-app",
+    "storage_bucket": "firestore-pagination-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824283620367:android:c69feb695410b0c3602f7a",
+        "android_client_info": {
+          "package_name": "com.meshkani.firestore_pagination_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824283620367-2f6pev6s15iks644elqua3qdnpf72fk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.meshkani.firestore_pagination_app",
+            "certificate_hash": "a3c3184b362eaf268db56ad0d4fcb90d5f1474e2"
+          }
+        },
+        {
+          "client_id": "824283620367-7qskb9hlvktfuobrj0oqmuhrm70b8c89.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6XhH1nKdPV242wb4K-62aBERNgZqbwLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824283620367-7qskb9hlvktfuobrj0oqmuhrm70b8c89.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
